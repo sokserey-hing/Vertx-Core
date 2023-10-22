@@ -1,10 +1,9 @@
-package com.serey.vertx_starter.eventloop;
+package com.serey.vertx_starter.eventloops;
 
 import io.vertx.core.*;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 
