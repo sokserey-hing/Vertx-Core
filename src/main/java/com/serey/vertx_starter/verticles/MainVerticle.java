@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import java.util.UUID;
 
 public class MainVerticle extends AbstractVerticle {
-  public static final Logger logger = LoggerFactory.getLogger(MainVerticle.class);
+  public static final Logger LOG = LoggerFactory.getLogger(MainVerticle.class);
   public static void main(String[] args) {
 
      final Vertx vertx = Vertx.vertx();
@@ -23,11 +23,7 @@ public class MainVerticle extends AbstractVerticle {
 
   @Override
   public void start(final Promise<Void> startPromise) throws Exception{
-    logger.debug("Start {}",getClass().getName());
-    logger.info("Start {}",getClass().getName());
-    logger.warn("Start {}",getClass().getName());
-//    LOG.debug("Start {}");
-    System.out.println("Staring deploying the Verticles");
+    LOG.debug("Start {}",getClass().getName());
     vertx.deployVerticle(new VerticleA());
     vertx.deployVerticle(new VerticleB());
     vertx.deployVerticle(VerticleN.class.getName(),
