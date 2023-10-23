@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JsonObjectExample {
   @Test
-  void jsonObjectCanBeMapped(){
+  void jsonObjectCanBeMapped() {
     final JsonObject myJsonObject = new JsonObject();
-    myJsonObject.put("id",1);
+    myJsonObject.put("id", 1);
     myJsonObject.put("name", "Alice");
     myJsonObject.put("loves_vertx", true);
 
@@ -27,21 +27,21 @@ public class JsonObjectExample {
   }
 
   @Test
-  void jsonObjectCanBeCreatedFromMap(){
+  void jsonObjectCanBeCreatedFromMap() {
     final Map<String, Object> myMap = new HashMap<>();
-    myMap.put("id",1);
+    myMap.put("id", 1);
     myMap.put("name", "Alice");
     myMap.put("loves_vertx", true);
 
     final JsonObject asJsonObject = new JsonObject(myMap);
     assertEquals(myMap, asJsonObject.getMap());
-    assertEquals(1,asJsonObject.getInteger("id"));
-    assertEquals("Alice",asJsonObject.getString("name"));
-    assertEquals(true,asJsonObject.getBoolean("loves_vertx"));
+    assertEquals(1, asJsonObject.getInteger("id"));
+    assertEquals("Alice", asJsonObject.getString("name"));
+    assertEquals(true, asJsonObject.getBoolean("loves_vertx"));
   }
 
   @Test
-  void jsonArrayCanBeMapped(){
+  void jsonArrayCanBeMapped() {
     final JsonArray myJsonArray = new JsonArray();
 
     myJsonArray
@@ -49,6 +49,22 @@ public class JsonObjectExample {
       .add(new JsonObject().put("id", 2))
       .add(new JsonObject().put("id", 3));
 
-    assertEquals("[{\"id\":1},{\"id\":2},{\"id\":3}]",myJsonArray.encode());
+    assertEquals("[{\"id\":1},{\"id\":2},{\"id\":3}]", myJsonArray.encode());
+  }
+
+  @Test
+  void canMapJavaObject() {
+    final Person person = new Person(1, "Alice", true);
+    final JsonObject alice = JsonObject.mapFrom(person);
+    assertEquals(person.getId(), alice.getInteger("id"));
+    assertEquals(person.getName(), alice.getString("name"));
+    assertEquals(person.isLovesVertx(), alice.getBoolean("lovesVertx"));
+
+
+    // no converting the other way around and it can be achieved only when we gave default constructor
+    final Person person2 = alice.mapTo(Person.class);
+    assertEquals(person.getId(), person2.getId());
+    assertEquals(person.getName(), person2.getName());
+    assertEquals(person.isLovesVertx(), person2.isLovesVertx());
   }
 }

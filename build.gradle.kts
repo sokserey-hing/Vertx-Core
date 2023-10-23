@@ -16,7 +16,8 @@ repositories {
 }
 
 val vertxVersion = "4.4.6"
-val junitJupiterVersion = "5.9.1"
+val junitJupiterVersion = "5.9.2"
+val jacksonVersion = "2.14.0"
 
 val mainVerticleName = "com.serey.vertx_starter.vertx_starter.MainVerticle"
 val launcherClassName = "io.vertx.core.Launcher"
@@ -37,10 +38,15 @@ dependencyManagement {
 dependencies {
   implementation(platform("io.vertx:vertx-stack-depchain:$vertxVersion"))
   implementation("io.vertx:vertx-core")
+  implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
   implementation("org.apache.logging.log4j:log4j-api")
   implementation("org.apache.logging.log4j:log4j-core")
   implementation("org.apache.logging.log4j:log4j-slf4j-impl")
-  implementation("org.slf4j:slf4j-api:1.7.30")
+  implementation("org.slf4j:slf4j-api:2.0.5")
+  implementation("com.fasterxml.jackson.core:jackson-core:2.14.2")
+  implementation("com.fasterxml.jackson.core:jackson-databind:2.14.2")
+  implementation("com.fasterxml.jackson.core:jackson-core:2.14.0")
+  implementation("com.fasterxml.jackson.core:jackson-databind:2.14.0")
   testImplementation("io.vertx:vertx-junit5")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
 }
