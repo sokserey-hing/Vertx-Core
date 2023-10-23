@@ -1,5 +1,6 @@
 package com.serey.vertx_starter.json;
 
+import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import org.junit.jupiter.api.Test;
 
@@ -37,6 +38,17 @@ public class JsonObjectExample {
     assertEquals(1,asJsonObject.getInteger("id"));
     assertEquals("Alice",asJsonObject.getString("name"));
     assertEquals(true,asJsonObject.getBoolean("loves_vertx"));
+  }
 
+  @Test
+  void jsonArrayCanBeMapped(){
+    final JsonArray myJsonArray = new JsonArray();
+
+    myJsonArray
+      .add(new JsonObject().put("id", 1))
+      .add(new JsonObject().put("id", 2))
+      .add(new JsonObject().put("id", 3));
+
+    assertEquals("[{\"id\":1},{\"id\":2},{\"id\":3}]",myJsonArray.encode());
   }
 }
