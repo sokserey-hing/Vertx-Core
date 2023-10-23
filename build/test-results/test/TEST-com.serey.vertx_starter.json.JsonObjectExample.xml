@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.serey.vertx_starter.json.JsonObjectExample" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-10-23T14:48:02" hostname="DESKTOP-LN7PR8T" time="0.066">
+  <properties/>
+  <testcase name="jsonObjectCanBeMapped()" classname="com.serey.vertx_starter.json.JsonObjectExample" time="0.063"/>
+  <testcase name="jsonObjectCanBeCreatedFromMap()" classname="com.serey.vertx_starter.json.JsonObjectExample" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

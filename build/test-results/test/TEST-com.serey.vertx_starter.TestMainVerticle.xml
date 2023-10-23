@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.serey.vertx_starter.TestMainVerticle" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-22T16:28:59" hostname="DESKTOP-LN7PR8T" time="0.536">
-  <properties/>
-  <testcase name="verticle_deployed(Vertx, VertxTestContext)" classname="com.serey.vertx_starter.TestMainVerticle" time="0.536"/>
-  <system-out><![CDATA[HTTP server started on port 8888
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
